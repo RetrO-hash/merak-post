@@ -1,5 +1,13 @@
 ---
-title:从两道题目浅谈PHP深浅拷贝
+title: 从两道题目浅谈PHP深浅拷贝
+date: 2020-03-18 17:35:21
+tags:
+    - php
+categories:
+    - web
+keywords: 
+    - PHP深浅拷贝
+toc: true
 ---
 
 ## 0x01 前言
