@@ -1,0 +1,38 @@
+language: node_js
+
+node_js:
+  - "11"
+
+# 缓存依赖
+cache:
+  directories:
+    - node_modules
+
+before_install:
+  - export TZ='Asia/Shanghai' # 更改时区
+
+# 依赖安装
+install:
+  - npm install hexo-cli -g
+  - npm install cherrio
+  - npm install
+
+# 构建脚本
+script:
+  - hexo g
+
+branches:
+  only:
+    - master # 只对 master 分支进行构建
+
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN
+  local_dir: public
+  fqdn: $CUSTOM_DOMAIN
+  name: $GIT_NAME
+  email: $GIT_EMAIL
+  on:
+    branch: master
+ 
