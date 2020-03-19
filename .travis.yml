@@ -15,6 +15,9 @@ before_install:
 install:
   - npm install hexo-cli -g
   - npm install cheerio
+  - npm install hexo-generator-feed
+  - npm install hexo-generator-sitemap --save
+  - npm install hexo-generator-baidu-sitemap --save
   - npm install
 
 # 构建脚本

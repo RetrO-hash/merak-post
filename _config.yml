@@ -3,17 +3,17 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Meark
+title: Merak
 subtitle: ''
 description: ''
-keywords:
-author: Meark
+keywords: CTF
+author: Merak
 language: zh-CN
 timezone: Asia/Shanghai
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://yoursite.com
+url: https://we.buptmerak.cn
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
@@ -94,6 +94,21 @@ ignore:
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
 theme: icarus
+
+# Extensions
+plugins:
+    hexo-generator-feed
+    hexo-generator-sitemap
+    hexo-generator-baidu-sitemap
+#Feed Atom
+feed:
+    type: atom
+    path: atom.xml
+    limit: 20
+sitemap:
+    path: sitemap.xml
+baidusitemap:
+    path: baidusitemap.xml
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
