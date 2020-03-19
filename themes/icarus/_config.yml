@@ -168,13 +168,13 @@ widgets:
         position: left
         # Links to be shown in the links widget
         links:
-            Eki's blog: 'https://ieki.xyz'
+            Eki: 'https://ieki.xyz'
             Du@nYuFi: 'http://www.duanyufi.com'
             Crisprx: 'https://blog.csdn.net/crisprx'
             Retr_0 : 'http://www.zhaobairen.club'
             Rimao: 'https://me.csdn.net/Zarcs_233'
-            Arklight:  'http://www.arklight.xyz/'
             LordRiot: 'https://lordriot.live/'
+            Arklight:  'http://www.arklight.xyz/'
     -
         # Widget name
         type: category
