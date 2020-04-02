@@ -1,14 +1,14 @@
 ---
-title: PHP积累 //文章标题
+title: Easy_ROP points 
 date: 2020-02-20
 tags:
-    - ROP //文章标签
+    - ROP
 categories:
-    - Pwn//文章目录
+    - Pwn
 keywords: 
-    - 基础ROP //文章关键词
+    - 基础ROP
 description: 
-    - CTF //文章描述
+    - CTF 
 toc: true
 ---
 作者：LordRiot

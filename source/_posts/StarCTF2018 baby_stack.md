@@ -1,14 +1,14 @@
 ---
-title: PHP积累 //文章标题
+title: 绕过Canary的其他姿势 StarCTF2018 baby_stack
 date: 2020-02-20
 tags:
-    - bypass canary //文章标签
+    - bypass canary
 categories:
     - Pwn//文章目录
 keywords: 
-    - 覆写TLS结构体 //文章关键词
+    - 覆写TLS结构体
 description: 
-    - CTF //文章描述
+    - CTF
 toc: true
 ---
 作者：LordRiot
