@@ -4,7 +4,7 @@ date: 2020-02-20
 tags:
     - bypass canary
 categories:
-    - Pwn//文章目录
+    - Pwn
 keywords: 
     - 覆写TLS结构体
 description: 
