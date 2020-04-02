@@ -1,3 +1,17 @@
+---
+title: PHP积累 //文章标题
+date: 2020-02-20
+tags:
+    - ROP //文章标签
+categories:
+    - Pwn//文章目录
+keywords: 
+    - 基础ROP //文章关键词
+description: 
+    - CTF //文章描述
+toc: true
+---
+作者：LordRiot
 #### 2月份美赛的不爽经历搞得人很不想学数学建模，于是最近开始复习pwn，这篇文章大概总结一下这一周复习的ROP中一些小point: )
 <br>
 这篇中出现的题均是ichunqiu中Linux Pwn基础ROP中的题目，题目中的exp可能有些libc环境问题，

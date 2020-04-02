@@ -1,3 +1,17 @@
+---
+title: PHP积累 //文章标题
+date: 2020-02-20
+tags:
+    - bypass canary //文章标签
+categories:
+    - Pwn//文章目录
+keywords: 
+    - 覆写TLS结构体 //文章关键词
+description: 
+    - CTF //文章描述
+toc: true
+---
+作者：LordRiot
 #### emmmm今天把手机摔坏导致很不爽，于是搞了好几个小时这个题，最后发现自己是个rz orz
 
 
