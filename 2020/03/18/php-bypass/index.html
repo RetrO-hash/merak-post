@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+<html  lang="zh">
+<head>
+    <meta charset="utf-8" />
+
+<meta name="generator" content="Hexo 4.2.0" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+<title>PHP积累 - Merak</title>
+
+
+    <meta name="description" content="CTF php相关题目的一些积累">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PHP积累">
+<meta property="og:url" content="https://we.buptmerak.cn/2020/03/18/php-bypass/index.html">
+<meta property="og:site_name" content="Merak">
+<meta property="og:description" content="CTF php相关题目的一些积累">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://live.ieki.xyz/usr/uploads/2020/02/ctf-daily.png">
+<meta property="article:published_time" content="2020-03-18T09:35:21.000Z">
+<meta property="article:modified_time" content="2020-04-03T12:17:15.448Z">
+<meta property="article:author" content="Merak">
+<meta property="article:tag" content="php积累">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://live.ieki.xyz/usr/uploads/2020/02/ctf-daily.png">
+
+
+
+
+
+<link rel="alternative" href="/atom.xml" title="PHP积累" type="application/atom+xml">
+
+
+
+<link rel="icon" href="/images/favicon.png">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css">
+
+
+    
+    
+<style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+    
+    
+    
+    
+<link rel="stylesheet" href="/css/back-to-top.css">
+
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1CGE4V1H26"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-1CGE4V1H26');
+</script>
+
+    
+    
+    
+    
+    
+    <link rel="stylesheet" href="/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+    
+    
+    
+
+
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="is-2-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/">
+            
+                <img src="/images/logo.png" alt="PHP积累" height="28">
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item"
+                href="/">Home</a>
+                
+                <a class="navbar-item"
+                href="/archives">Archives</a>
+                
+                <a class="navbar-item"
+                href="/categories">Categories</a>
+                
+                <a class="navbar-item"
+                href="/tags">Tags</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                
+                <a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;">
+                    <i class="fas fa-list-ul"></i>
+                </a>
+                
+                
+                <a class="navbar-item search" title="搜索" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-9-widescreen has-order-2 column-main">
+<div class="card">
+    
+    <div class="card-image">
+        <span  class="image is-7by1">
+            <img class="thumbnail" src="https://live.ieki.xyz/usr/uploads/2020/02/ctf-daily.png" alt="PHP积累">
+        </span>
+    </div>
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2020-03-18T09:35:21.000Z">2020-03-18</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/web/">web</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    9 分钟 读完 (大约 1344 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                PHP积累
+            
+        </h1>
+        <div class="content">
+            <h2 id="php-三种写法"><a href="#php-三种写法" class="headerlink" title="php 三种写法"></a>php 三种写法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;? echo (&quot;这是一个 PHP 语言的嵌入范例\n&quot;); ?&gt;</span><br><span class="line">&lt;?php echo(&quot;这是第二个 PHP 语言的嵌入范例\n&quot;); ?&gt;</span><br><span class="line">&lt;script language&#x3D;&quot;php&quot;&gt; </span><br><span class="line">echo (&quot;这是类似 JavaScript 及 VBScript 语法</span><br><span class="line">的 PHP 语言嵌入范例&quot;);</span><br><span class="line">&lt;&#x2F;script&gt;</span><br><span class="line">&lt;% echo (&quot;这是类似 ASP 嵌入语法的 PHP 范例&quot;); %&gt;</span><br></pre></td></tr></table></figure>
+
+<p>php://filter简单理解：</p>
+<p>php://filter 是php中独有的一个协议，可以作为一个中间流来处理其他流，可以进行任意文件的读取；根据名字，filter，可以很容易想到这个协议可以用来过滤一些东西；</p>
+<p>使用不同的参数可以达到不同的目的和效果：</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>描述</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>resource=&lt;要过滤的数据流&gt;</td>
+<td>指定了你要筛选过滤的数据流</td>
+<td>必选</td>
+</tr>
+<tr>
+<td>read=&lt;读链的筛选列表&gt;</td>
+<td>可以设定一个或多个过滤器名称，以管道符”|”分割</td>
+<td>可选</td>
+</tr>
+<tr>
+<td>write=&lt;写链的筛选列表&gt;</td>
+<td>可以设定一个或多个过滤器名称，以管道符”|“分割</td>
+<td>可选</td>
+</tr>
+<tr>
+<td>&lt;；两个链的筛选列表&gt;</td>
+<td>任何没有以 read= 或 write= 作前缀 的筛选器列表会视情况应用于读或写链。</td>
+<td></td>
+</tr>
+</tbody></table>
+<a id="more"></a>
+
+<h2 id="反序列化魔术方法"><a href="#反序列化魔术方法" class="headerlink" title="反序列化魔术方法"></a>反序列化魔术方法</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">__construct()<span class="comment">//当一个对象创建时被调用</span></span><br><span class="line">__destruct() <span class="comment">//当一个对象销毁时被调用</span></span><br><span class="line">__toString() <span class="comment">//当一个对象被当作一个字符串使用</span></span><br><span class="line">__sleep()<span class="comment">//在对象在被序列化之前运行</span></span><br><span class="line">__wakeup()<span class="comment">//将在反序列化之后立即被调用(通过序列化对象元素个数不符来绕过)</span></span><br><span class="line">__get()<span class="comment">//获得一个类的成员变量时调用</span></span><br><span class="line">__set()<span class="comment">//设置一个类的成员变量时调用</span></span><br><span class="line">__invoke()<span class="comment">//调用函数的方式调用一个对象时的回应方法</span></span><br><span class="line">__call()<span class="comment">//当调用一个对象中的不能用的方法的时候就会执行这个函数</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="public、protected与private在序列化时的区别"><a href="#public、protected与private在序列化时的区别" class="headerlink" title="public、protected与private在序列化时的区别"></a>public、protected与private在序列化时的区别</h2><p>protected 声明的字段为保护字段，在所声明的类和该类的子类中可见，但在该类的对象实例中不可见。因此保护字段的字段名在序列化时，字段名前面会加上\0<em>\0的前缀。这里的 \0 表示 ASCII 码为 0 的字符(不可见字符)，而不是 \0 组合。这也许解释了，为什么如果直接在网址上，传递\0</em>\0username会报错，因为实际上并不是\0，只是用它来代替ASCII值为0的字符。必须用python传值才可以。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Name</span></span>&#123;</span><br><span class="line">    <span class="keyword">protected</span> $username = <span class="string">'nonono'</span>;</span><br><span class="line">    <span class="keyword">protected</span> $password = <span class="string">'yesyes'</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">($username,$password)</span></span>&#123;</span><br><span class="line">    	<span class="keyword">$this</span>-&gt;username = $username;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;password = $password;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__wakeup</span><span class="params">()</span></span>&#123;</span><br><span class="line">    	<span class="keyword">$this</span>-&gt;username = <span class="string">"guests"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">fun</span><span class="params">()</span></span>&#123;</span><br><span class="line">    	<span class="keyword">echo</span> <span class="keyword">$this</span>-&gt;username;<span class="keyword">echo</span> <span class="string">"&lt;br&gt;"</span>;<span class="keyword">echo</span> <span class="keyword">$this</span>-&gt;password;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">$a = serialize(<span class="keyword">new</span> Name(<span class="string">"admin"</span>,<span class="number">100</span>));</span><br><span class="line"><span class="keyword">echo</span> $a;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">O:4:&quot;Name&quot;:2:&#123;s:11:&quot;\0*\0username&quot;;s:5:&quot;admin&quot;;s:11:&quot;\0*\0password&quot;;i:100;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>private 声明的字段为私有字段，只在所声明的类中可见，在该类的子类和该类的对象实例中均不可见。因此私有字段的字段名在序列化时，类名和字段名前面都会加上\0的前缀。字符串长度也包括所加前缀的长度。其中 \0 字符也是计算长度的。</p>
+<p>可以不看：<br>这里 表示的是声明该私有字段的类的类名，而不是被序列化的对象的类名。因为声明该私有字段的类不一定是被序列化的对象的类，而有可能是它的祖先类。字段名被作为字符串序列化时，字符串值中包括根据其可见性所加的前缀。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Name</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> $username = <span class="string">'nonono'</span>;</span><br><span class="line">    <span class="keyword">private</span> $password = <span class="string">'yesyes'</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">($username,$password)</span></span>&#123;</span><br><span class="line">    	<span class="keyword">$this</span>-&gt;username = $username;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;password = $password;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__wakeup</span><span class="params">()</span></span>&#123;</span><br><span class="line">    	<span class="keyword">$this</span>-&gt;username = <span class="string">"guests"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">fun</span><span class="params">()</span></span>&#123;</span><br><span class="line">    	<span class="keyword">echo</span> <span class="keyword">$this</span>-&gt;username;<span class="keyword">echo</span> <span class="string">"&lt;br&gt;"</span>;<span class="keyword">echo</span> <span class="keyword">$this</span>-&gt;password;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">$a = serialize(<span class="keyword">new</span> Name(<span class="string">"admin"</span>,<span class="number">100</span>));</span><br><span class="line"><span class="keyword">echo</span> $a;</span><br><span class="line"><span class="meta">?&gt;</span></span><br><span class="line">O:<span class="number">4</span>:<span class="string">"Name"</span>:<span class="number">2</span>:&#123;s:<span class="number">14</span>:<span class="string">"\0Name\0username"</span>;s:<span class="number">5</span>:<span class="string">"admin"</span>;s:<span class="number">14</span>:<span class="string">"\0Name\0password"</span>;i:<span class="number">100</span>;&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-wakeup-方法绕过"><a href="#3-wakeup-方法绕过" class="headerlink" title="3.__wakeup()方法绕过"></a>3.<code>__wakeup()</code>方法绕过</h2><p>作用：<br>与<code>__sleep()</code>函数相反，<code>__sleep()</code>函数，是在序序列化时被自动调用。<code>__wakeup()</code>函数，在反序列化时，被自动调用。<br>绕过：<br>当反序列化字符串，表示属性个数的值大于真实属性个数时，会跳过<code>__wakeup</code> 函数的执行。<br>上面的代码，序列化后的结果为</p>
+<p>要求：PHP5 &lt; 5.6.25 PHP7 &lt; 7.0.10</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">O:4:&quot;Name&quot;:2:&#123;s:14:&quot;\0Name\0username&quot;;s:5:&quot;admin&quot;;s:14:&quot;\0Name\0password&quot;;i:100;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>其中name后面的2，代表类中有2个属性，但如果我们把2改成3，就会绕过__wakeup()函数。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">O:4:&quot;Name&quot;:3:&#123;s:14:&quot;\0Name\0username&quot;;s:5:&quot;admin&quot;;s:14:&quot;\0Name\0password&quot;;i:100;&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="htaccess文件利用"><a href="#htaccess文件利用" class="headerlink" title=".htaccess文件利用"></a><code>.htaccess</code>文件利用</h2><ul>
+<li><p>正确解析绕过</p>
+<p><code>.htaccess</code>中出现的无法正常解析的条目时无法生效</p>
+<ul>
+<li><p><code>\</code>换行绕过脏字符或绕WAF</p>
+</li>
+<li><p>利用XMP图片解析头(<code>#</code>刚好是注释符)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#define width 1</span><br><span class="line">#define height 1</span><br></pre></td></tr></table></figure></li>
+<li><p>利用wbmp文件解析头</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\x00\x00\x8a\x39\x8a\x39</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>增加使用php解析的文件后缀(.jpg)</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">AddType application&#x2F;x-httpd-php .jpg</span><br></pre></td></tr></table></figure></li>
+<li><p>增加使用php解析的文件</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;FilesMatch &quot;&lt;filename&gt;&quot;&gt;</span><br><span class="line">SetHandler application&#x2F;x-httpd-php</span><br><span class="line">&lt;&#x2F;FilesMatch&gt;</span><br></pre></td></tr></table></figure></li>
+<li></li>
+<li><p><strong>利用php_value注入php配置</strong></p>
+<ul>
+<li><p>在所有php前后注入恶意php文件</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">php_value auto_prepend_file &quot;&lt;FileDir&gt;&quot;</span><br><span class="line">php_value auto_append_file &quot;&lt;FileDir&gt;&quot;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>利用prce参数绕过preg_match</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">php_value pcre.backtrack_limit 0</span><br><span class="line">php_value pcre.jit 0</span><br></pre></td></tr></table></figure>
+
+<p>  任意匹配均返回<code>FALSE</code></p>
+<blockquote>
+<p><a href="https://www.php.net/manual/zh/pcre.configuration.php">https://www.php.net/manual/zh/pcre.configuration.php</a></p>
+</blockquote>
+</li>
+<li><p>利用UTF-7编码绕过日志html编码</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">php_value zend.multibyte 1</span><br><span class="line">php_value zend.script_encoding &quot;UTF-7&quot;</span><br></pre></td></tr></table></figure></li>
+<li><p>利用inclue_path包含恶意文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">php_value include_path &quot;&#x2F;tmp&quot;</span><br></pre></td></tr></table></figure></li>
+<li><p>利用<code>error log</code>写本地文件 (html编码)</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">php_value error_log &#x2F;tmp&#x2F;fl3g.php</span><br><span class="line">php_value error_reporting 32767</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/php/" rel="tag">php</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2020/03/18/pop%E4%B8%8E%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">从反序列化、POP链看PHP代码审计</span>
+            </a>
+        </div>
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2020/03/18/%E4%BB%8E%E4%B8%A4%E9%81%93%E9%A2%98%E7%9B%AE%E6%B5%85%E8%B0%88PHP%E6%B7%B1%E6%B5%85%E6%8B%B7%E8%B4%9D/">
+                <span class="level-item">从两道题目浅谈PHP深浅拷贝</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+</div>
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-4-widescreen  has-order-1 column-left ">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <nav class="level">
+            <div class="level-item has-text-centered" style="flex-shrink: 1">
+                <div>
+                    
+                    <figure class="image is-128x128 has-mb-6">
+                        <img class="is-rounded" src="/images/avatar.png" alt="Merak">
+                    </figure>
+                    
+                    <p class="is-size-4 is-block">
+                        Merak
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-block">
+                        CTF team
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
+                        <i class="fas fa-map-marker-alt has-mr-7"></i>
+                        <span>Beijing</span>
+                    </p>
+                    
+                </div>
+            </div>
+        </nav>
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        文章
+                    </p>
+                    <a href="/archives">
+                        <p class="title has-text-weight-normal">
+                            8
+                        </p>
+                    </a>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        分类
+                    </p>
+                    <a href="/categories">
+                        <p class="title has-text-weight-normal">
+                            3
+                        </p>
+                    </a>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        标签
+                    </p>
+                    <a href="/tags">
+                        <p class="title has-text-weight-normal">
+                            6
+                        </p>
+                    </a>
+                </div>
+            </div>
+        </nav>
+        
+        <div class="level">
+            <a class="level-item button is-link is-rounded" href="https://github.com/BuptMerak" target="_blank" rel="noopener">
+                关注我</a>
+        </div>
+        
+        
+        
+        <div class="level is-mobile">
+            
+            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
+                title="Github" href="https://github.com/BuptMerak">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
+                title="RSS" href="/atom.xml">
+                
+                <i class="fas fa-rss"></i>
+                
+            </a>
+            
+        </div>
+        
+    </div>
+</div>
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            链接
+        </h3>
+        <ul class="menu-list">
+        
+            <li>
+                <a class="level is-mobile" href="https://ieki.xyz" target="_blank" rel="noopener">
+                    <span class="level-left">
+                        <span class="level-item">Eki</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">ieki.xyz</span>
+                    </span>
+                </a>
+            </li>
+        
+            <li>
+                <a class="level is-mobile" href="http://www.duanyufi.com" target="_blank" rel="noopener">
+                    <span class="level-left">
+                        <span class="level-item">Du@nYuFi</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">www.duanyufi.com</span>
+                    </span>
+                </a>
+            </li>
+        
+            <li>
+                <a class="level is-mobile" href="https://blog.csdn.net/crisprx" target="_blank" rel="noopener">
+                    <span class="level-left">
+                        <span class="level-item">Crisprx</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">blog.csdn.net</span>
+                    </span>
+                </a>
+            </li>
+        
+            <li>
+                <a class="level is-mobile" href="http://www.zhaobairen.club" target="_blank" rel="noopener">
+                    <span class="level-left">
+                        <span class="level-item">Retr_0</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">www.zhaobairen.club</span>
+                    </span>
+                </a>
+            </li>
+        
+            <li>
+                <a class="level is-mobile" href="https://me.csdn.net/Zarcs_233" target="_blank" rel="noopener">
+                    <span class="level-left">
+                        <span class="level-item">Rimao</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">me.csdn.net</span>
+                    </span>
+                </a>
+            </li>
+        
+            <li>
+                <a class="level is-mobile" href="https://lordriot.live/" target="_blank" rel="noopener">
+                    <span class="level-left">
+                        <span class="level-item">LordRiot</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">lordriot.live</span>
+                    </span>
+                </a>
+            </li>
+        
+            <li>
+                <a class="level is-mobile" href="http://www.arklight.xyz/" target="_blank" rel="noopener">
+                    <span class="level-left">
+                        <span class="level-item">Arklight</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">www.arklight.xyz</span>
+                    </span>
+                </a>
+            </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                分类
+            </h3>
+            <ul class="menu-list">
+            <li>
+        <a class="level is-marginless" href="/categories/Pwn/">
+            <span class="level-start">
+                <span class="level-item">Pwn</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">2</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/contest/">
+            <span class="level-start">
+                <span class="level-item">contest</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/web/">
+            <span class="level-start">
+                <span class="level-item">web</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">5</span>
+            </span>
+        </a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+        <div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            标签云
+        </h3>
+        <a href="/tags/ROP/" style="font-size: 10px;">ROP</a> <a href="/tags/bypass-canary/" style="font-size: 10px;">bypass canary</a> <a href="/tags/mrctf/" style="font-size: 10px;">mrctf</a> <a href="/tags/php/" style="font-size: 20px;">php</a> <a href="/tags/pop/" style="font-size: 10px;">pop</a> <a href="/tags/rce/" style="font-size: 10px;">rce</a>
+    </div>
+</div>
+    
+    
+        <div class="column-right-shadow  is-sticky">
+        
+            
+
+    <div class="card widget" id="toc">
+        <div class="card-content">
+            <div class="menu">
+                <h3 class="menu-label">
+                    目录
+                </h3>
+                <ul class="menu-list"><li>
+        <a class="is-flex" href="#php-三种写法">
+        <span class="has-mr-6">1</span>
+        <span>php 三种写法</span>
+        </a></li><li>
+        <a class="is-flex" href="#反序列化魔术方法">
+        <span class="has-mr-6">2</span>
+        <span>反序列化魔术方法</span>
+        </a></li><li>
+        <a class="is-flex" href="#public、protected与private在序列化时的区别">
+        <span class="has-mr-6">3</span>
+        <span>public、protected与private在序列化时的区别</span>
+        </a></li><li>
+        <a class="is-flex" href="#3-wakeup-方法绕过">
+        <span class="has-mr-6">4</span>
+        <span>3.__wakeup()方法绕过</span>
+        </a></li><li>
+        <a class="is-flex" href="#htaccess文件利用">
+        <span class="has-mr-6">5</span>
+        <span>.htaccess文件利用</span>
+        </a></li></ul>
+            </div>
+        </div>
+    </div>
+
+        
+            <div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            最新文章
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/2020/04/03/MRCTF2020/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="MRCTF新生赛 2020">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-04-03T10:35:21.000Z">2020-04-03</time></div>
+                    <a href="/2020/04/03/MRCTF2020/" class="title has-link-black-ter is-size-6 has-text-weight-normal">MRCTF新生赛 2020</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/contest/">contest</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2020/03/19/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="文件上传">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-18T16:01:00.000Z">2020-03-19</time></div>
+                    <a href="/2020/03/19/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/" class="title has-link-black-ter is-size-6 has-text-weight-normal">文件上传</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/web/">web</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2020/03/18/pop%E4%B8%8E%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="从反序列化、POP链看PHP代码审计">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-18T10:35:21.000Z">2020-03-18</time></div>
+                    <a href="/2020/03/18/pop%E4%B8%8E%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/" class="title has-link-black-ter is-size-6 has-text-weight-normal">从反序列化、POP链看PHP代码审计</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/web/">web</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2020/03/18/php-bypass/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="https://live.ieki.xyz/usr/uploads/2020/02/ctf-daily.png" alt="PHP积累">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-18T09:35:21.000Z">2020-03-18</time></div>
+                    <a href="/2020/03/18/php-bypass/" class="title has-link-black-ter is-size-6 has-text-weight-normal">PHP积累</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/web/">web</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2020/03/18/%E4%BB%8E%E4%B8%A4%E9%81%93%E9%A2%98%E7%9B%AE%E6%B5%85%E8%B0%88PHP%E6%B7%B1%E6%B5%85%E6%8B%B7%E8%B4%9D/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="从两道题目浅谈PHP深浅拷贝">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-18T09:35:21.000Z">2020-03-18</time></div>
+                    <a href="/2020/03/18/%E4%BB%8E%E4%B8%A4%E9%81%93%E9%A2%98%E7%9B%AE%E6%B5%85%E8%B0%88PHP%E6%B7%B1%E6%B5%85%E6%8B%B7%E8%B4%9D/" class="title has-link-black-ter is-size-6 has-text-weight-normal">从两道题目浅谈PHP深浅拷贝</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/web/">web</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            归档
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2020/04/">
+                <span class="level-start">
+                    <span class="level-item">四月 2020</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2020/03/">
+                <span class="level-start">
+                    <span class="level-item">三月 2020</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">5</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2020/02/">
+                <span class="level-start">
+                    <span class="level-item">二月 2020</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                标签
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/ROP/">
+                        <span class="tag">ROP</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/bypass-canary/">
+                        <span class="tag">bypass canary</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/mrctf/">
+                        <span class="tag">mrctf</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/php/">
+                        <span class="tag">php</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/pop/">
+                        <span class="tag">pop</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/rce/">
+                        <span class="tag">rce</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+        
+        </div>
+    
+</div>
+
+                
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/">
+                
+                    <img src="/images/logo.png" alt="PHP积累" height="28">
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2020 Merak&nbsp;
+				<a href="http://beian.miit.gov.cn/">吉ICP备20000355号-2</a>
+				&nbsp;
+                Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> & <a
+                        href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a>
+                
+                </p>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/">
+                        
+                        <i class="fab fa-creative-commons"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
+                        
+                        <i class="fab fa-creative-commons-by"></i>
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("zh-CN");</script>
+
+
+<script>
+var IcarusThemeSettings = {
+    site: {
+        url: 'https://we.buptmerak.cn',
+        external_link: {"enable":true,"exclude":[]}
+    },
+    article: {
+        highlight: {
+            clipboard: true,
+            fold: 'unfolded'
+        }
+    }
+};
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+
+
+
+
+
+<script src="/js/animation.js"></script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+<script src="/js/gallery.js" defer></script>
+
+
+
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+});
+</script>
+
+
+<a id="back-to-top" title="回到顶端" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="想要查找什么..." />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(无标题)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+    
+</body>
+</html>
